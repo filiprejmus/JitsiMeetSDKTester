@@ -6318,7 +6318,7 @@
   "version" "1.6.8"
 
 "jitsi-meet-react-native@file:../jitsi-meet/react-native-sdk/jitsi-meet-react-native-0.0.1.tgz":
-  "integrity" "sha512-cZ1m0+oUp+Kl3iu833fuY2/fH1cIj08XBkCIWogs5ww6HOEs+f8UJvaBMAFrdNaqKol4IaZVWYpOiFNuWUSyLw=="
+  "integrity" "sha512-PC/0aKPihhU71avYm0JAhcw9tbzrYLoDdpr6Qh3mk4H4hTNPxcNVQRqAndepMCKPoAh6tMO+Z0Ioff2Axl6vjQ=="
   "resolved" "file:../jitsi-meet/react-native-sdk/jitsi-meet-react-native-0.0.1.tgz"
   "version" "0.0.1"
   dependencies:

@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -29,33 +29,44 @@ const App = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const [text, onChangeText] = useState("");
+  const [text, onChangeText] = useState("MyTestRoom456");
   [flagprops, setFlagprops] = useState({});
   [showJitsi, setShowJitsi] = useState(false);
+  const jitsiMeeting = useRef(null);
 
-  function onLeave(){
-    setShowJitsi(true)
+  function onReadyToClose(){
+    setShowJitsi(false)
   }
+
+  const meetingOptions = {
+    domain: "https://meet.jit.si",
+    roomName: text,
+    onReadyToClose : onReadyToClose
+  }
+
+
+
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <View
-        style={{
-          backgroundColor: isDarkMode ? Colors.black : Colors.white,
-        }}>
+      <View>
         {!showJitsi ? 
         <>
         <TextInput style={{color: 'black'}} onChangeText={onChangeText} value={text} placeholder="Enter Room here"/>
         <Button title = 'JOIN' onPress={() => 
           {
-            setFlagprops({"url" : "https://meet.jit.si/" + text, "onLeave": onLeave});
             setShowJitsi(true);
           }
         }
           />
         </> 
         :
-        <JitsiMeetView url={flagprops.url} onLeave={() => {setShowJitsi(false)}} />}
+        <>
+          <Button title='Close Meeting' color={'red'} onPress={() => jitsiMeeting.current.close()} />
+          <JitsiMeetView meetingOptions={meetingOptions} width={390} height={844} ref={jitsiMeeting} />
+        </>
+          }
+        
       </View>
     </SafeAreaView>
   );
