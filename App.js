@@ -63,7 +63,7 @@ const App = () => {
         :
         <>
           <Button title='Close Meeting' color={'red'} onPress={() => jitsiMeeting.current.close()} />
-          <JitsiMeetView meetingOptions={meetingOptions} width={390} height={844} ref={jitsiMeeting} />
+          <JitsiMeetView meetingOptions={meetingOptions} width={390} height={644} ref={jitsiMeeting} />
         </>
           }
         
