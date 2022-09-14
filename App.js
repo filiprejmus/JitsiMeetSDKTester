@@ -41,7 +41,8 @@ const App = () => {
   const meetingOptions = {
     domain: "https://meet.jit.si",
     roomName: text,
-    onReadyToClose : onReadyToClose
+    onReadyToClose : onReadyToClose,
+    settings: {startAudioOnly: true}
   }
 
 
@@ -63,7 +64,7 @@ const App = () => {
         :
         <>
           <Button title='Close Meeting' color={'red'} onPress={() => jitsiMeeting.current.close()} />
-          <JitsiMeetView meetingOptions={meetingOptions} width={390} height={644} ref={jitsiMeeting} />
+          <JitsiMeetView flags={[]} meetingOptions={meetingOptions} width={390} height={644} ref={jitsiMeeting} />
         </>
           }
         
