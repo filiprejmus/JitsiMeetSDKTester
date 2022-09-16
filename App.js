@@ -18,7 +18,7 @@ import {
   TextInput,
   Button
 } from 'react-native';
-import JitsiMeetView from 'jitsi-meet-react-native';
+import JitsiMeeting from 'jitsi-meet-react-native';
 
 import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 
@@ -42,7 +42,7 @@ const App = () => {
     domain: "https://meet.jit.si",
     roomName: text,
     onReadyToClose : onReadyToClose,
-    settings: {startAudioOnly: true}
+    settings: {startWithAudioMuted: false, startWithVideoMuted: true, startAudioOnly: false}
   }
 
 
@@ -64,7 +64,7 @@ const App = () => {
         :
         <>
           <Button title='Close Meeting' color={'red'} onPress={() => jitsiMeeting.current.close()} />
-          <JitsiMeetView flags={[]} meetingOptions={meetingOptions} width={390} height={644} ref={jitsiMeeting} />
+          <JitsiMeeting flags={[]} meetingOptions={meetingOptions} style={{width: 390, height: 644}} ref={jitsiMeeting} />
         </>
           }
         
